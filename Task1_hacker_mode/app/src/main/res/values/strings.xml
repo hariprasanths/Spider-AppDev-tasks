@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Task1_hacker_mode</string>
+    <string name="button_add">ADD</string>
+    <string name="hint_add">Enter the text to be added</string>
+    <string name="button_remove">REMOVE</string>
+    <string name="hint_remove">Enter the position to be removed</string>
+</resources>
