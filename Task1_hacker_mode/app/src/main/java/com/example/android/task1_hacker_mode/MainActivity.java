@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
                 inputText = addTextbox.getText().toString();
                 if (inputText.equals(""))
-                    Toast.makeText(getApplicationContext(), "Enter the text and then click add", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter the text and then click add!", Toast.LENGTH_SHORT).show();
                 else {
                     arrayList.add(inputText);
                     listAdapter.notifyDataSetChanged();
@@ -54,12 +54,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button removeButton = (Button) findViewById(R.id.remove_button);
+        final Button removeButton = (Button) findViewById(R.id.remove_button);
         final EditText removeTextbox = (EditText) findViewById(R.id.remove_textbox);
         removeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                inputPosition = -1;
+                try {
+                    inputPosition = ((Integer.parseInt(removeTextbox.getText().toString())) - 1);
+                } catch (NumberFormatException e) {
 
+                }
+
+                if ((inputPosition >= 0) && (inputPosition < arrayList.size())) {
+                    arrayList.remove(inputPosition);
+                    listAdapter.notifyDataSetChanged();
+
+                } else
+                    Toast.makeText(getApplicationContext(), "There is no item in that position!", Toast.LENGTH_SHORT).show();
+
+                removeTextbox.getText().clear();
             }
         });
     }

@@ -31,6 +31,7 @@
             android:hint="@string/hint_add" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/hint_remove"
-            android:inputType="number"/>
+            android:inputType="number" />
 
     </LinearLayout>
 </LinearLayout>
