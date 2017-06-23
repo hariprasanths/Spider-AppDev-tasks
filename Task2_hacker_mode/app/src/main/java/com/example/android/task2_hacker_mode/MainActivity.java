@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     MediaPlayer mediaPlayer;
     Thread thread = null;
+    int flag = -1;
     private SensorManager sensorManager;
     private Sensor proximitySensor;
 
@@ -53,31 +54,40 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 displayWarningMessage("You are far from the sensor");
                 if (thread != null)
                     thread.interrupt();
+                flag = -1;
 
                 releaseMediaPlayer();
 
             } else {
                 displayWarningMessage("You are near the sensor");
 
-                thread = new Thread(new Runnable() {
+                Thread thread = new Thread() {
                     public void run() {
 
+                        flag = 1;
                         try {
                             synchronized (this) {
-                                wait(6000);
-                                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.alarmtone);
-                                mediaPlayer.start();
-                                mediaPlayer.setLooping(true);
+
+                                wait(4000);
+
                             }
 
                         } catch (InterruptedException ex) {
+
+                            flag = -1;
                             releaseMediaPlayer();
 
                         }
+                        if (flag == 1) {
+                            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.alarmtone);
+                            mediaPlayer.start();
+                            mediaPlayer.setLooping(true);
+
+                        } else releaseMediaPlayer();
 
 
                     }
-                });
+                };
                 thread.start();
             }
 
