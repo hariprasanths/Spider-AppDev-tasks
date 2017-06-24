@@ -12,5 +12,14 @@
         tools:text="WARNING"
         android:textSize="24sp"
         android:layout_centerInParent="true"/>
+    <TextView
+        android:id="@+id/timer_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="COUNTDOWN TIMER"
+        android:textSize="20sp"
+        android:layout_centerInParent="true"
+        android:layout_margin="16dp"
+        android:layout_below="@+id/warning_textview" />
 
 </RelativeLayout>
