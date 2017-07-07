@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 String temperature = String.format(Locale.getDefault(),"Temperature: %.2f F", (weatherData.getTemp() - 273.15) * 1.8 + 32.00);
                 String countryCode = "Country Code: " + weatherData.getCountry();
                 String pressure = "Pressure: " + weatherData.getPressure() + " Pa";
-                String humidity = "Humidity: " + weatherData.getMain().getHumidity();
+                String humidity = "Humidity: " + weatherData.getMain().getHumidity() + " pc";
                 String result = city + "\n" + temperature + "\n" + countryCode + "\n" + pressure + "\n" + humidity ;
                 resultTextView.setText(result);
 

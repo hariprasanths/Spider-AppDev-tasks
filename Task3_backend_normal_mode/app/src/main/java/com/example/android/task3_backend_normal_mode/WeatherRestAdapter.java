@@ -6,7 +6,7 @@ import retrofit.http.GET;
 import retrofit.http.Query;
 
 /**
- * Created by Hari on 03-07-2017.
+ * Created by Hari on 05-07-2017.
  */
 
 public class WeatherRestAdapter {

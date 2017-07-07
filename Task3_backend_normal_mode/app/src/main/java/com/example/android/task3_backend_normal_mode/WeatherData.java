@@ -3,7 +3,7 @@ package com.example.android.task3_backend_normal_mode;
 import java.util.List;
 
 /**
- * Created by Hari on 03-07-2017.
+ * Created by Hari on 05-07-2017.
  */
 public class WeatherData {
     private Coord coord;
